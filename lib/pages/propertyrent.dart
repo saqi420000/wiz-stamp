@@ -14,6 +14,15 @@ class _PropertyrentState extends State<Propertyrent> {
 
   String signature2 = '';
 
+  TextEditingController  nameController = TextEditingController();
+  TextEditingController  phoneController = TextEditingController();
+  TextEditingController  cnicController = TextEditingController();
+  TextEditingController  officeController = TextEditingController();
+  TextEditingController  comissionController = TextEditingController();
+  TextEditingController  securityRentController = TextEditingController();
+  TextEditingController  locationController = TextEditingController();
+  TextEditingController  signatureController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +50,7 @@ class _PropertyrentState extends State<Propertyrent> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10)),
                   width: MediaQuery.of(context).size.width * 90 / 100,
-                  height: MediaQuery.of(context).size.height * 190 / 100,
+                  // height: MediaQuery.of(context).size.height * 190 / 100,
                   child: Column(
                     children: [
                       //
@@ -70,6 +79,7 @@ class _PropertyrentState extends State<Propertyrent> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          controller: nameController,
                           decoration: InputDecoration(
                               hintText: 'Full Name',
                               label: const Text(
@@ -88,6 +98,7 @@ class _PropertyrentState extends State<Propertyrent> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          controller: phoneController,
                           decoration: InputDecoration(
                               hintText: 'Phone Number',
                               label: const Text(
@@ -106,6 +117,7 @@ class _PropertyrentState extends State<Propertyrent> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          controller: cnicController,
                           decoration: InputDecoration(
                               hintText: 'CNIC (ID Card Number)',
                               label: const Text(
@@ -124,6 +136,7 @@ class _PropertyrentState extends State<Propertyrent> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          controller: officeController,
                           minLines: 2,
                           maxLines: 3,
                           decoration: InputDecoration(
@@ -146,6 +159,7 @@ class _PropertyrentState extends State<Propertyrent> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          controller: comissionController,
                           decoration: InputDecoration(
                               hintText: 'Comission Amount of Dealer',
                               label: const Text(
@@ -165,6 +179,7 @@ class _PropertyrentState extends State<Propertyrent> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          controller: securityRentController,
                           minLines: 2,
                           maxLines: 2,
                           decoration: InputDecoration(
@@ -185,6 +200,7 @@ class _PropertyrentState extends State<Propertyrent> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          controller: locationController,
                           decoration: InputDecoration(
                               hintText:
                                   'Fill complete location of building that you want to rent out',
@@ -218,6 +234,7 @@ class _PropertyrentState extends State<Propertyrent> {
                               width:
                                   MediaQuery.of(context).size.width * 40 / 100,
                               child: TextField(
+                                controller: signatureController,
                                 onChanged: (value) {
                                   if (value.length < 15) {
                                     signature1 = value;
@@ -280,15 +297,15 @@ class _PropertyrentState extends State<Propertyrent> {
                       //
                       //
                       //
-                      const Padding(
-                        padding: EdgeInsets.all(20.0),
+                       Padding(
+                        padding: const EdgeInsets.all(20.0),
                         child: Center(
                           child: Text(
                             "Tenant Information",
                             style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black),
+                                color: Colors.black.withOpacity(0.3)),
                           ),
                         ),
                       ),
@@ -296,17 +313,21 @@ class _PropertyrentState extends State<Propertyrent> {
                       //
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              hintText: 'Full Name',
-                              label: const Text(
-                                'Full Name',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              focusedBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black))),
+                        child: Opacity(
+                          opacity: 0.3,
+                          child: TextField(
+                            readOnly: true,
+                            decoration: InputDecoration(
+                                hintText: 'Full Name',
+                                label: const Text(
+                                  'Full Name',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                focusedBorder: const OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.black))),
+                          ),
                         ),
                       ),
                       //
@@ -314,17 +335,20 @@ class _PropertyrentState extends State<Propertyrent> {
                       //
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              hintText: 'Phone Number',
-                              label: const Text(
-                                'Phone Number ',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              focusedBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black))),
+                        child: Opacity(opacity: 0.3,
+                          child: TextField(
+                            readOnly: true,
+                            decoration: InputDecoration(
+                                hintText: 'Phone Number',
+                                label: const Text(
+                                  'Phone Number ',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                focusedBorder: const OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.black))),
+                          ),
                         ),
                       ),
                       //
@@ -332,17 +356,20 @@ class _PropertyrentState extends State<Propertyrent> {
                       //
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              hintText: 'CNIC (ID Card Number)',
-                              label: const Text(
-                                'CNIC',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              focusedBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black))),
+                        child: Opacity(opacity: 0.3,
+                          child: TextField(                            readOnly: true,
+
+                            decoration: InputDecoration(
+                                hintText: 'CNIC (ID Card Number)',
+                                label: const Text(
+                                  'CNIC',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                focusedBorder: const OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.black))),
+                          ),
                         ),
                       ),
                       //
@@ -362,30 +389,33 @@ class _PropertyrentState extends State<Propertyrent> {
                             SizedBox(
                               width:
                                   MediaQuery.of(context).size.width * 40 / 100,
-                              child: TextField(
-                                onChanged: (value) {
-                                  if (value.length < 15) {
-                                    signature1 = value;
-                                    setState(() {});
-                                  } else {
-                                    if (isSnackBarVisible == false) {
-                                      showSnackBarF(context,
-                                          'Fill signature less than 15-words');
+                              child: Opacity(opacity: 0.3,
+                                child: TextField(                            readOnly: true,
+
+                                  onChanged: (value) {
+                                    if (value.length < 15) {
+                                      signature1 = value;
+                                      setState(() {});
+                                    } else {
+                                      if (isSnackBarVisible == false) {
+                                        showSnackBarF(context,
+                                            'Fill signature less than 15-words');
+                                      }
                                     }
-                                  }
-                                },
-                                decoration: InputDecoration(
-                                    hintText: 'Fill your signature',
-                                    label: const Text(
-                                      'Signature',
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
-                                    focusedBorder: const OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.black))),
+                                  },
+                                  decoration: InputDecoration(
+                                      hintText: 'Fill your signature',
+                                      label: const Text(
+                                        'Signature',
+                                        style: TextStyle(color: Colors.black),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15)),
+                                      focusedBorder: const OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.black))),
+                                ),
                               ),
                             ),
                             Padding(
@@ -431,7 +461,48 @@ class _PropertyrentState extends State<Propertyrent> {
         elevation: 10,
         backgroundColor: ThemeColors.primaryColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        onPressed: () {},
+        onPressed: () {
+
+          if(nameController.text.isEmpty)
+          {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Name is required')));
+          }
+          else if(phoneController.text.isEmpty)
+          {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Phone Number is required')));
+
+          }
+          else if(cnicController.text.isEmpty)
+          {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('CNIC is required')));
+
+          }
+          else if(officeController.text.isEmpty)
+          {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Office section is required')));
+          }
+          else if(comissionController.text.isEmpty)
+          {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Add Commission')));
+          }
+          else if(securityRentController.text.isEmpty)
+          {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Add Price')));
+          }
+          else if(locationController.text.isEmpty)
+          {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Location is required')));
+          }
+          else if(signatureController.text.isEmpty)
+          {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Signature is required')));
+          }
+          else
+          {
+            print('go to new screen');
+          }
+
+        },
         label: const Icon(
           Icons.remove_red_eye_outlined,
           color: Colors.white,

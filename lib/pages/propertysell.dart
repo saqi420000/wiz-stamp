@@ -13,6 +13,15 @@ class _PropertysellState extends State<Propertysell> {
   String signature1 = '';
   String signature2 = '';
 
+  TextEditingController  nameController = TextEditingController();
+  TextEditingController  phoneController = TextEditingController();
+  TextEditingController  cnicController = TextEditingController();
+  TextEditingController  officeController = TextEditingController();
+  TextEditingController  comissionController = TextEditingController();
+  TextEditingController  priceController = TextEditingController();
+  TextEditingController  locationController = TextEditingController();
+  TextEditingController  signatureController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +49,7 @@ class _PropertysellState extends State<Propertysell> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10)),
                   width: MediaQuery.of(context).size.width * 90 / 100,
-                  height: MediaQuery.of(context).size.height * 190 / 100,
+                  // height: MediaQuery.of(context).size.height * 190 / 100,
                   child: Column(
                     children: [
                       //
@@ -69,6 +78,7 @@ class _PropertysellState extends State<Propertysell> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          controller: nameController,
                           decoration: InputDecoration(
                               hintText: 'Name',
                               label: const Text(
@@ -87,6 +97,7 @@ class _PropertysellState extends State<Propertysell> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          controller: phoneController,
                           decoration: InputDecoration(
                               hintText: 'Phone Number',
                               label: const Text(
@@ -105,6 +116,7 @@ class _PropertysellState extends State<Propertysell> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          controller: cnicController,
                           decoration: InputDecoration(
                               hintText: 'CNIC (ID Card Number)',
                               label: const Text(
@@ -123,6 +135,7 @@ class _PropertysellState extends State<Propertysell> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          controller: officeController,
                           minLines: 2,
                           maxLines: 3,
                           decoration: InputDecoration(
@@ -145,6 +158,7 @@ class _PropertysellState extends State<Propertysell> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          controller: comissionController,
                           decoration: InputDecoration(
                               hintText: 'Comission Amount of Dealer',
                               label: const Text(
@@ -164,6 +178,7 @@ class _PropertysellState extends State<Propertysell> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          controller: priceController,
                           decoration: InputDecoration(
                               hintText:
                                   'Fill the final price of property that you want to sell out',
@@ -183,6 +198,7 @@ class _PropertysellState extends State<Propertysell> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          controller: locationController,
                           decoration: InputDecoration(
                               hintText:
                                   'Fill complete location of property that you want to sell out',
@@ -216,6 +232,7 @@ class _PropertysellState extends State<Propertysell> {
                               width:
                                   MediaQuery.of(context).size.width * 40 / 100,
                               child: TextField(
+                                controller: signatureController,
                                 onChanged: (value) {
                                   if (value.length < 15) {
                                     signature1 = value;
@@ -278,7 +295,7 @@ class _PropertysellState extends State<Propertysell> {
                       //
                       //
                       //
-                      const Padding(
+                       Padding(
                         padding: EdgeInsets.all(20.0),
                         child: Center(
                           child: Text(
@@ -286,7 +303,7 @@ class _PropertysellState extends State<Propertysell> {
                             style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black),
+                                color: Colors.black.withOpacity(0.3)),
                           ),
                         ),
                       ),
@@ -294,17 +311,21 @@ class _PropertysellState extends State<Propertysell> {
                       //
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              hintText: 'Full Name',
-                              label: const Text(
-                                'Full Name',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              focusedBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black))),
+                        child: Opacity(
+                          opacity: 0.3,
+                          child: TextField(
+                            readOnly: true,
+                            decoration: InputDecoration(
+                                hintText: 'Full Name',
+                                label: const Text(
+                                  'Full Name',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                focusedBorder: const OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.black))),
+                          ),
                         ),
                       ),
                       //
@@ -312,17 +333,21 @@ class _PropertysellState extends State<Propertysell> {
                       //
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              hintText: 'Phone Number',
-                              label: const Text(
-                                'Phone Number ',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              focusedBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black))),
+                        child: Opacity(
+                          opacity: 0.3,
+                          child: TextField(
+                            readOnly: true,
+                            decoration: InputDecoration(
+                                hintText: 'Phone Number',
+                                label: const Text(
+                                  'Phone Number ',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                focusedBorder: const OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.black))),
+                          ),
                         ),
                       ),
                       //
@@ -330,17 +355,22 @@ class _PropertysellState extends State<Propertysell> {
                       //
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              hintText: 'CNIC (ID Card Number)',
-                              label: const Text(
-                                'CNIC',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              focusedBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.black))),
+                        child: Opacity(
+                          opacity: 0.3,
+                          child: TextField(
+                            readOnly: true,
+                            // enabled: false,
+                            decoration: InputDecoration(
+                                hintText: 'CNIC (ID Card Number)',
+                                label: const Text(
+                                  'CNIC',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                focusedBorder: const OutlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.black))),
+                          ),
                         ),
                       ),
                       //
@@ -357,54 +387,58 @@ class _PropertysellState extends State<Propertysell> {
                       //
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                              width:
-                                  MediaQuery.of(context).size.width * 40 / 100,
-                              child: TextField(
-                                onChanged: (value) {
-                                  if (value.length < 15) {
-                                    signature2 = value;
-                                    setState(() {});
-                                  } else {
-                                    if (isSnackBarVisible == false) {
-                                      showSnackBarF(context,
-                                          'Fill signature less than 15-words');
+                        child: Opacity(
+                          opacity: 0.3,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                width:
+                                    MediaQuery.of(context).size.width * 40 / 100,
+                                child: TextField(
+                                  readOnly: true,
+                                  onChanged: (value) {
+                                    if (value.length < 15) {
+                                      signature2 = value;
+                                      setState(() {});
+                                    } else {
+                                      if (isSnackBarVisible == false) {
+                                        showSnackBarF(context,
+                                            'Fill signature less than 15-words');
+                                      }
                                     }
-                                  }
-                                },
-                                decoration: InputDecoration(
-                                    hintText: 'Fill your signature',
-                                    label: const Text(
-                                      'Signature',
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
-                                    focusedBorder: const OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.black))),
+                                  },
+                                  decoration: InputDecoration(
+                                      hintText: 'Fill your signature',
+                                      label: const Text(
+                                        'Signature',
+                                        style: TextStyle(color: Colors.black),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15)),
+                                      focusedBorder: const OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.black))),
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 10),
-                              child: SizedBox(
-                                  width: MediaQuery.of(context).size.width *
-                                      35 /
-                                      100,
-                                  child: Text(
-                                    signature2,
-                                    textAlign: TextAlign.end,
-                                    style: const TextStyle(
-                                        fontFamily: 'song',
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
-                                  )),
-                            )
-                          ],
+                              Padding(
+                                padding: const EdgeInsets.only(right: 10),
+                                child: SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        35 /
+                                        100,
+                                    child: Text(
+                                      signature2,
+                                      textAlign: TextAlign.end,
+                                      style: const TextStyle(
+                                          fontFamily: 'song',
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -427,7 +461,46 @@ class _PropertysellState extends State<Propertysell> {
         elevation: 10,
         backgroundColor: ThemeColors.primaryColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        onPressed: () {},
+        onPressed: () {
+          if(nameController.text.isEmpty)
+            {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Name is required')));
+            }
+          else if(phoneController.text.isEmpty)
+            {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Phone Number is required')));
+
+            }
+          else if(cnicController.text.isEmpty)
+            {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('CNIC is required')));
+
+            }
+          else if(officeController.text.isEmpty)
+            {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Office section is required')));
+            }
+          else if(comissionController.text.isEmpty)
+            {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Add Commission')));
+            }
+          else if(priceController.text.isEmpty)
+            {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Add Price')));
+            }
+          else if(locationController.text.isEmpty)
+            {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Location is required')));
+            }
+          else if(signatureController.text.isEmpty)
+            {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Signature is required')));
+            }
+          else
+            {
+              print('go to new screen');
+            }
+        },
         label: const Icon(
           Icons.remove_red_eye_outlined,
           color: Colors.white,

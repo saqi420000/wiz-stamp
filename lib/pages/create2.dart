@@ -9,7 +9,7 @@ class Create2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ThemeColors.primaryColor.shade50,
-      body: const Center(child: Text('sdfgbn')),
+      body: const Center(child: Text('car')),
     );
   }
 }
