@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wizstamp/pages/real_estate_seller_document_confirmation_page.dart';
 
 import '../utils/theme.dart';
 
@@ -17,9 +18,9 @@ class _PropertysellState extends State<Propertysell> {
   TextEditingController  phoneController = TextEditingController();
   TextEditingController  cnicController = TextEditingController();
   TextEditingController  officeController = TextEditingController();
-  TextEditingController  comissionController = TextEditingController();
-  TextEditingController  priceController = TextEditingController();
-  TextEditingController  locationController = TextEditingController();
+  TextEditingController  commissionController = TextEditingController();
+  TextEditingController  propertyPriceController = TextEditingController();
+  TextEditingController  propertyLocationController = TextEditingController();
   TextEditingController  signatureController = TextEditingController();
 
   @override
@@ -97,6 +98,7 @@ class _PropertysellState extends State<Propertysell> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          keyboardType:const TextInputType.numberWithOptions(),
                           controller: phoneController,
                           decoration: InputDecoration(
                               hintText: 'Phone Number',
@@ -116,6 +118,7 @@ class _PropertysellState extends State<Propertysell> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          keyboardType:const TextInputType.numberWithOptions(),
                           controller: cnicController,
                           decoration: InputDecoration(
                               hintText: 'CNIC (ID Card Number)',
@@ -158,11 +161,12 @@ class _PropertysellState extends State<Propertysell> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
-                          controller: comissionController,
+                          keyboardType: const TextInputType.numberWithOptions(),
+                          controller: commissionController,
                           decoration: InputDecoration(
-                              hintText: 'Comission Amount of Dealer',
+                              hintText: 'Commission Amount of Dealer',
                               label: const Text(
-                                'Comission Amount',
+                                'Commission Amount',
                                 style: TextStyle(color: Colors.black),
                               ),
                               enabledBorder: OutlineInputBorder(
@@ -178,7 +182,9 @@ class _PropertysellState extends State<Propertysell> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
-                          controller: priceController,
+                          keyboardType:const TextInputType.numberWithOptions(),
+
+                          controller: propertyPriceController,
                           decoration: InputDecoration(
                               hintText:
                                   'Fill the final price of property that you want to sell out',
@@ -198,7 +204,7 @@ class _PropertysellState extends State<Propertysell> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
-                          controller: locationController,
+                          controller: propertyLocationController,
                           decoration: InputDecoration(
                               hintText:
                                   'Fill complete location of property that you want to sell out',
@@ -296,7 +302,7 @@ class _PropertysellState extends State<Propertysell> {
                       //
                       //
                        Padding(
-                        padding: EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(20.0),
                         child: Center(
                           child: Text(
                             "Buyer Information",
@@ -336,6 +342,7 @@ class _PropertysellState extends State<Propertysell> {
                         child: Opacity(
                           opacity: 0.3,
                           child: TextField(
+                            keyboardType: const TextInputType.numberWithOptions(),
                             readOnly: true,
                             decoration: InputDecoration(
                                 hintText: 'Phone Number',
@@ -480,15 +487,15 @@ class _PropertysellState extends State<Propertysell> {
             {
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Office section is required')));
             }
-          else if(comissionController.text.isEmpty)
+          else if(commissionController.text.isEmpty)
             {
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Add Commission')));
             }
-          else if(priceController.text.isEmpty)
+          else if(propertyPriceController.text.isEmpty)
             {
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Add Price')));
             }
-          else if(locationController.text.isEmpty)
+          else if(propertyLocationController.text.isEmpty)
             {
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Location is required')));
             }
@@ -499,6 +506,15 @@ class _PropertysellState extends State<Propertysell> {
           else
             {
               print('go to new screen');
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => SellerDocumentConfirmationPage(cnic: cnicController.text.toString(),
+              commissionAmount: commissionController.text.toString(),
+                name: nameController.text.toString(),
+                office: officeController.text.toString(),
+                phoneNumber: phoneController.text.toString(),
+                priceOfProperty: propertyPriceController.text.toString(),
+                propertyLocation: propertyLocationController.text.toString(),
+                signature: signatureController.text.toString(),
+              ),));
             }
         },
         label: const Icon(

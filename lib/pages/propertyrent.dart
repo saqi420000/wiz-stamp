@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wizstamp/pages/real_estate_rent_confirmation_page.dart';
 
 import '../utils/theme.dart';
 
@@ -98,6 +99,7 @@ class _PropertyrentState extends State<Propertyrent> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          keyboardType:const TextInputType.numberWithOptions(),
                           controller: phoneController,
                           decoration: InputDecoration(
                               hintText: 'Phone Number',
@@ -117,6 +119,7 @@ class _PropertyrentState extends State<Propertyrent> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          keyboardType:const TextInputType.numberWithOptions(),
                           controller: cnicController,
                           decoration: InputDecoration(
                               hintText: 'CNIC (ID Card Number)',
@@ -159,6 +162,7 @@ class _PropertyrentState extends State<Propertyrent> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          keyboardType:const TextInputType.numberWithOptions(),
                           controller: comissionController,
                           decoration: InputDecoration(
                               hintText: 'Comission Amount of Dealer',
@@ -179,6 +183,7 @@ class _PropertyrentState extends State<Propertyrent> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: TextField(
+                          keyboardType:const TextInputType.numberWithOptions(),
                           controller: securityRentController,
                           minLines: 2,
                           maxLines: 2,
@@ -500,6 +505,15 @@ class _PropertyrentState extends State<Propertyrent> {
           else
           {
             print('go to new screen');
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => RentDocumentConfirmationPage(cnic: cnicController.text.toString(),
+              commissionAmount: comissionController.text.toString(),
+              name: nameController.text.toString(),
+              office: officeController.text.toString(),
+              phoneNumber: phoneController.text.toString(),
+              monthlyRent: securityRentController.text.toString(),
+              propertyLocation: locationController.text.toString(),
+              signature: signatureController.text.toString(),
+            ),));
           }
 
         },
